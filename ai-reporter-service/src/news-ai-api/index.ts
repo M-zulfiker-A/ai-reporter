@@ -40,6 +40,7 @@ export class EventRegistryWrapper {
     articlesSortBy?: "date" | string;
     includeArticleEventUri?: boolean;
     includeArticleImage?: boolean;
+    language?: string;
   }): Promise<EventRegistryArticlesResponse> {
     const url = "https://eventregistry.org/api/v1/article/getArticles";
 
@@ -52,6 +53,9 @@ export class EventRegistryWrapper {
             },
             {
               sourceLocationUri: params.sourceLocationUri,
+            },
+            {
+              lang: params.language || "eng",
             },
           ],
         },
@@ -73,7 +77,6 @@ export class EventRegistryWrapper {
       },
       body: JSON.stringify(requestBody),
     };
-
     try {
       const response = await fetch(url, options);
 

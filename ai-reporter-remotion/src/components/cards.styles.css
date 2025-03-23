@@ -1,0 +1,22 @@
+.article-content {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  display: flex;
+  flex-direction: column;
+
+  .article-body {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+}
+
+.article-source {
+  position: absolute;
+  right: 0px;
+  bottom: 0;
+  background: #727d73;
+  color: white;
+  padding: 5px;
+  border-radius: 12px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+}

@@ -1,5 +1,7 @@
 import { Composition } from "remotion";
 import { Scene } from "./Scene";
+import { fetchArticles } from "./helpers/api";
+import { articleSchema } from "./common/schema";
 
 // Welcome to the Remotion Three Starter Kit!
 // Two compositions have been created, showing how to use
@@ -22,15 +24,16 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="Scene"
         component={Scene}
-        durationInFrames={300}
+        durationInFrames={3000}
         fps={30}
         width={1280}
         height={720}
         defaultProps={{
-          deviceType: "phone",
-          phoneColor: "rgba(110, 152, 191, 0.00)" as const,
-          baseScale: 1,
+          country: "India",
+          data: null,
         }}
+        schema={articleSchema}
+        calculateMetadata={fetchArticles}
       />
     </>
   );

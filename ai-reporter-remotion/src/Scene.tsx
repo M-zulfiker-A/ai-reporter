@@ -1,22 +1,30 @@
 import { ThreeCanvas } from "@remotion/three";
 import { useVideoConfig } from "remotion";
 import Reporter from "./Reporter";
+import NewsCards from "./components/news-cards";
+import { Props } from "./common/schema";
 
-export const Scene: React.FC = () => {
+export const Scene: React.FC<Props> = ({ data }: Props) => {
   const { width, height } = useVideoConfig();
 
   return (
     <>
       <div>
-        <h1
+        <div
           style={{
             position: "absolute",
-            bottom: 10,
+            top: 0,
+            left: 0,
             zIndex: 1000,
+            width,
+            height,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
-          WHer are I?
-        </h1>
+          <NewsCards data={data?.slice(0, 20) || null} />
+        </div>
         <ThreeCanvas width={width} height={height}>
           <Reporter />
         </ThreeCanvas>

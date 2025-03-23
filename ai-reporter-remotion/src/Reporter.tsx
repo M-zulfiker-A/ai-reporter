@@ -4,16 +4,16 @@ import { useThree } from "@react-three/fiber";
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 
 export default function Scene({ ...props }) {
-  const { nodes, materials } = useSpline(
-    "https://prod.spline.design/kue5ShiPooJiMtDh/scene.splinecode",
-  );
+  // const { nodes, materials } = useSpline(
+  //   "https://prod.spline.design/kue5ShiPooJiMtDh/scene.splinecode",
+  // );
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
   const camera = useThree((state) => state.camera);
   useEffect(() => {
-    camera.position.set(0, 0, -400);
+    camera.position.set(0, 0, -700);
     camera.near = 0.2;
-    camera.far = 1000;
+    camera.far = 10000;
     camera.lookAt(0, 0, 0);
   }, [camera]);
 
@@ -26,8 +26,13 @@ export default function Scene({ ...props }) {
   });
   return (
     <>
-      <color attach="background" args={["#feeade"]} />
-      <group {...props} rotation={[0, 135, 0]} dispose={null}>
+      <color attach="background" args={["#FFD0C7"]} />
+      {/* <group
+        {...props}
+        rotation={[0, 135, 0]}
+        dispose={null}
+        position={[-360, -200, -50]}
+      >
         <scene name="Scene 1">
           <pointLight
             name="Point Light"
@@ -208,7 +213,7 @@ export default function Scene({ ...props }) {
             color="#eaeaea"
           />
         </scene>
-      </group>
+      </group> */}
     </>
   );
 }
