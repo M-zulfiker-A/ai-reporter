@@ -19,11 +19,39 @@ interface EventRegistryArticlesParams {
 
 interface EventRegistryArticlesResponse {
   articles: {
-    results: any[];
+    results: ArticleResults[];
     totalResults: number;
     pages: number;
     page: number;
   };
+}
+
+export interface ArticleResults {
+  uri: string;
+  lang: string;
+  isDuplicate: boolean;
+  date: Date;
+  time: string;
+  dateTime: Date;
+  dateTimePub: Date;
+  dataType: string;
+  sim: number;
+  url: string;
+  title: string;
+  body: string;
+  source: Source;
+  authors: any[];
+  image: string;
+  eventUri: string;
+  sentiment: number;
+  wgt: number;
+  relevance: number;
+}
+
+interface Source {
+  uri: string;
+  dataType: string;
+  title: string;
 }
 
 export class EventRegistryWrapper {
